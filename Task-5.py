@@ -1,18 +1,10 @@
-class KgToPounds:
-    def __init__(self, kg):
-        self.__kg = kg
+C = "С"
+c = "с"
+A = ["Санс", "Арбуз", "Доместос", "Слайс", "Салат"]
 
-    @property
-    def kg(self):
-        return self.__kg
+count = 0
+for word in A:
+    if len(word) > 1 and word.startswith(C) and word.endswith(c):
+        count += 1
 
-    @kg.setter
-    def kg(self, value):
-        self.__kg = value
-
-    def to_pounds(self):
-        return self.__kg * 2.20462
-
-kg = float(input("Введите вес в киллограммах: "))
-weight = KgToPounds(kg)
-print("Вес в фунтах:", weight.to_pounds())
+print("Количество подходящих элементов:", count)

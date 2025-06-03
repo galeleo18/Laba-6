@@ -1,13 +1,13 @@
-class Soda:
-    def __init__(self, addition=None):
-        self.addition = addition
+numbers = [-3, -1, 2, 5, -7, 8, -2, 4]
 
-    def show_my_drink(self):
-        if self.addition:
-            print(f"Газировка и {self.addition}")
-        else:
-            print("Обычная газировка")
+first_positive = None
+last_negative = None
 
-add = input("Можете вввести добавку к газировке если желаете: ")
-drink = Soda(add if add else None)
-drink.show_my_drink()
+for number in numbers:
+    if first_positive is None and number > 0:
+        first_positive = number
+    if number < 0:
+        last_negative = number
+
+print("Первый положительный:", first_positive)
+print("Последний отрицательный:", last_negative)

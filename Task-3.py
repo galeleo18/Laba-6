@@ -1,23 +1,20 @@
-class BankAccount:
-    def __init__(self,balance = 0):
-        self.__balance = balance
+class Task:
+    def __init__(self, DateStart, DateEnd, Description):
+        self.DateStart = DateStart
+        self.DateEnd = DateEnd
+        self.Description = Description
 
-    def deposit(self,amount):
-        self.__balance += amount
+tasks = [
+    Task("01-05-2025", "05-05-2025", "Учёба"),
+    Task("07-05-2025", "12-05-2025", "Учёба"),
+    Task("14-05-2025", "19-05-2025", "Учёба"),
+    Task("21-05-2025", "26-05-2025", "Учёба"),
+    Task("28-05-2025", "28-05-2025", "Отдых")
+]
 
-    def withdraw(self,amount):
-        if amount <= self.__balance:
-            self.__balance -= amount
-        else:
-            print("Недостаточно средств.")
+latest_task = tasks[0]
+for t in tasks:
+    if t.DateEnd > latest_task.DateEnd:
+        latest_task = t
 
-    def get_balance(self):
-        return self.__balance
-
-account = BankAccount()
-dep = int(input("Сколько внести на счёт? "))
-account.deposit(dep)
-
-wd = int(input("Сколько снять со счёта? "))
-account.withdraw(wd)
-print("Баланс", account.get_balance())
+print(f"Последняя задача: {latest_task.Description}, заканчивается {latest_task.DateEnd}")
